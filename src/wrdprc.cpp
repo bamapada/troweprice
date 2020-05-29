@@ -152,7 +152,7 @@ class WordProc {
             if(nthSent > 0 && nthSent <= this->nSents) {
                 int pos = 0;
                 for(sent_t *lpSent = this->lpParagraph; nullptr != lpSent; lpSent = lpSent->next, ++pos) {
-                    if(pos == nthSent - 1) {
+                    if(pos == nthSent - 1 && nullptr != lpSent->lpMaxWord) {
                         length = lpSent->lpMaxWord->wlen;
                         break;
                     }
@@ -169,7 +169,7 @@ class WordProc {
             if(nthSent > 0 && nthSent <= this->nSents) {
                 int pos = 0;
                 for(sent_t *lpSent = this->lpParagraph; nullptr != lpSent; lpSent = lpSent->next, ++pos) {
-                    if(pos == nthSent - 1) {
+                    if(pos == nthSent - 1 && nullptr != lpSent->lpMinWord) {
                         length = lpSent->lpMinWord->wlen;
                         break;
                     }
