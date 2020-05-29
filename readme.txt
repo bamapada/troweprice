@@ -47,3 +47,16 @@ The cow jumped over the moon.
 
 I have added one sample test data file and can execute like below
 cat input01.dat | ./wordproc
+
+Below is the sample result of the above test case
+===================================================================
+Longest Word: Sentence:1, Expected/Actual:8/8, Status: passed
+Longest Word: Sentence:2, Expected/Actual:8/8, Status: passed
+Shortest Word: Sentence:1, Expected/Actual: 2/2, Status:passed
+Shortest Word: Sentence:2, Expected/Actual: 3/3, Status:passed
+Longest Word: Sentence:3, Expected/Actual:5/5, Status: passed
+Longest Word: Sentence:3, Expected/Actual:2/5, Status: failed
+Sentence Count: Expected/Actual:2/3, Status: failed
+
+Summary: 7 test cases executed, pass=5, failed=2
+===================================================================
