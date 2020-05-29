@@ -41,6 +41,14 @@ class word_t {
             strncpy(wrd, str, len);
         }
     }
+
+    ~word_t() {
+        if(nullptr != wrd) {
+            delete [] wrd;
+            wrd = nullptr;
+        }
+    }
+
     char *wrd;
     size_t wlen;
     word_t *next;
@@ -91,7 +99,22 @@ class WordProc {
         {}
         // d-dtor
         ~WordProc() {
-
+            sent_t *lpSent, *lpPrevSent;
+            word_t *lpWord, *lpPrevWord;
+            lpSent = this->lpParagraph;
+            while(lpSent) {
+                lpPrevSent = lpSent;
+                lpWord = lpPrevSent->lpHead;
+                while(lpWord) {
+                    lpPrevWord = lpWord;
+                    lpWord = lpWord->next;
+                    delete lpPrevWord;
+                    lpPrevWord = nullptr;
+                }
+                lpSent = lpSent->next;
+                delete lpPrevSent;
+                lpPrevSent = nullptr;
+            }
         }
 
         // Parse one given input and create the paragraph for further processing
